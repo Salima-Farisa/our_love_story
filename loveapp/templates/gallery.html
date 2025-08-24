@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block hero %}
+<div class="text-center py-5" style="background:#ffe4e1;">
+  <h1 class="fw-bold">Our Gallery 📸</h1>
+  <p class="lead">Memories captured, love eternal.</p>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <h2 class="text-center mb-4">Photo Gallery 📸</h2>
+  <div class="row">
+    {% for photo in photos %}
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm">
+          <img src="{{ photo.image.url }}" class="card-img-top" alt="Photo">
+          {% if photo.caption %}
+            <div class="card-body">
+              <p class="card-text">{{ photo.caption }}</p>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% empty %}
+      <p class="text-center">No photos uploaded yet.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+</form>
