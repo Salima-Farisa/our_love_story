@@ -15,6 +15,7 @@ SECRET_KEY = 'django-insecure-nj4lv0xl+w_cz&6#7gs49!*!zce#qxy%rxmp441ci!)t6tb_t3
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGINS = ["https://suhailsalima-website.onrender.com"]
 
 
 # Application definition
